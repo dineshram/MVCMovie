@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
 
 namespace MVCMovie.Controllers
 {
@@ -13,13 +14,10 @@ namespace MVCMovie.Controllers
 
         // GET: /HelloWorld/Welcome
 
-        public string Welcome()
+        public string Welcome(string name, int numTimes = 1)
         {
+            return HttpUtility.HtmlEncode("Hello " + name + ", NumTimes is : " + numTimes);
             return "The welcome action method..";
         }
-      /*  public ActionResult Index()
-        {
-            return View();
-        }*/
     }
 }
