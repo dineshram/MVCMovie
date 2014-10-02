@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace MVCMovie.Controllers
 {
@@ -14,9 +13,13 @@ namespace MVCMovie.Controllers
 
         // GET: /HelloWorld/Welcome
 
-        public string Welcome(string name, int ID = 1)
+        // Now the ViewBag object contains data that will be passed to the view automatically
+        public ActionResult Welcome(string name, int numTimes = 1)
         {
-            return HttpUtility.HtmlEncode("Hello " + name + ", ID " + ID);
+            ViewBag.Message = "Hello " + name;
+            ViewBag.NumTimes = numTimes;
+
+            return View();
         }
     }
 }
